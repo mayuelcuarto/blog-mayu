@@ -1,0 +1,40 @@
+<section class="row mt-5">
+	<div class="col">
+		<button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalPost">New Post</button>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Título</th>
+					<th scope="col">Autor</th>
+					<th scope="col">&nbsp;</th>
+					<th scope="col">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let post of posts; index as i">
+					<th scope="row">{{i + 1}}</th>
+					<td>{{post.titulo}}</td>
+					<td>{{post.autor}}</td>
+					<td *ngIf="post.userUid == userUid || isAdmin == true; else noOwner">
+						<button class="btn btn-primary" data-toggle="modal" data-target="#modalPost" (click)="onPreUpdatePost(post)">Update</button>
+					</td>
+					<ng-template #noOwner>
+						<td>
+							<button class="btn btn-secondary" disabled="true">Update</button>
+						</td>
+					</ng-template>
+					<td *ngIf="isAdmin == true; else noAdmin">
+						<button class="btn btn-danger" (click)="onDeletePost(post.id)">Delete</button>
+					</td>
+					<ng-template #noAdmin>
+						<td>
+							<button class="btn btn-danger" disabled="true">Delete</button>
+						</td>
+					</ng-template>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+<app-modal-post [userUid]="userUid"></app-modal-post>
