@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onLoginRedirect(): void{
-    this.router.navigate(['admin/list-posts']);
+    this.router.navigate(['/']);
   }
 
   onCatchError(err): void{
