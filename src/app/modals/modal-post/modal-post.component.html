@@ -29,7 +29,7 @@
           </div>
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
-            <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedPost.descripcion"></textarea>
+            <textarea class="form-control" rows="10" name="descripcion" [(ngModel)]="this.dataApi.selectedPost.descripcion"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose (click)="onCloseModal(formPost)">Close</button>

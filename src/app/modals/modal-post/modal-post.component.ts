@@ -19,6 +19,7 @@ export class ModalPostComponent implements OnInit {
   onSavePost(postForm: NgForm): void{
     if(postForm.value.id == null){
       // New
+      console.log("userUid", this.userUid);
       postForm.value.userUid = this.userUid;
       this.dataApi.addPost(postForm.value);
     }else{
