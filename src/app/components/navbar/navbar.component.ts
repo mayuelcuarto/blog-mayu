@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
   	) { }
   public app_name: string = 'El Blog del Mayu';
   public isLogged: boolean = false;
+  public isAdmin: any = null;
+  public userUid: string = null;
 
   ngOnInit() {
   	this.getCurrentUser();
@@ -25,6 +27,10 @@ export class NavbarComponent implements OnInit {
   		if(auth){
   			console.log('user logged');
   			this.isLogged = true;
+        this.userUid = auth.uid;
+        this.authService.isUserAdmin(this.userUid).subscribe(userRole => {
+          this.isAdmin = Object.assign({}, userRole.roles).hasOwnProperty('admin');
+        })
   		}else{
   			console.log('user not logged');
   			this.isLogged = false;
