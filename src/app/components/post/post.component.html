@@ -1,0 +1,17 @@
+<section id="posts" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12" *ngFor="let post of posts">
+        <div>
+          <div>
+            <div>
+              <h2 routerLink="/post/{{post.id}}" class="card-title">{{post.titulo}}</h2>
+              <div [innerHtml]="post.descripcion"></div>
+              <a href="{{post.link_amazon}}" class="btn btn-block btn-primary" target="_blank">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
