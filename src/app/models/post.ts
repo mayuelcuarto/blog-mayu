@@ -5,4 +5,5 @@ export interface PostInterface{
 	autor?: string;
 	id?: string;
 	userUid ?: string;
+	fecha?: string;
 }
