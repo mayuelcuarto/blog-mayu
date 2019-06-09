@@ -1,6 +1,6 @@
-<section id="posts" class="mt-5">
+<section id="home" class="mt-5">
   <div class="container">
-      <header class="blog-header py-3" id="top">
+      <header class="blog-header py-3" id="top-home">
         <div class="align-items-center">
           <div class="text-center">
               <span class="blog-header-logo text-dark"><a routerLink="/">El Blog del Mayu</a></span>
@@ -10,7 +10,7 @@
     
        <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" >Tecnología</a>
+          <a class="p-2 text-muted" routerLink="/tecnologia">Tecnología</a>
           <a class="p-2 text-muted" routerLink="/videojuegos">Videojuegos</a>
         </nav>
       </div>
@@ -44,12 +44,12 @@
             <div class="card-body d-flex flex-column align-items-start">
               <strong class="d-inline-block mb-2 text-success">Tecnología</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="tecnologia.html#symfony">Configuración de Proyecto Symfony</a>
+                <a class="text-dark" routerLink="/tecnologia" [fragment]="'symfony'">Configuración de Proyecto Symfony</a>
               </h3>
               <div class="mb-1 text-muted">Feb 13, 2018</div>
               <p class="card-text mb-auto">Primero que nada requeriremos contar con un interprete PHP, para este fin te recomiendo instalar <a target="_blank" href="http://www.wampserver.com/en/">wamp</a>
                     (este es un software que nos configurará Apache, PHP y MySql de una sola vez).</p>
-              <a href="tecnologia.html#symfony">Continua leyendo...</a>
+              <a routerLink="/tecnologia" [fragment]="'symfony'">Continua leyendo...</a>
             </div>
             
           </div>
@@ -108,7 +108,7 @@
     <footer class="blog-footer">
       <p>Este sitio web fue desarrollado con <a href="https://getbootstrap.com/">Bootstrap</a></p>
       <p>
-        <a routerLink="." fragment="top">Subir</a>
+        <a routerLink="." fragment="top-home">Subir</a>
       </p>
     </footer>
 </section>
