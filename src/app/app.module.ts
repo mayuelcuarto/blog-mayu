@@ -24,6 +24,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { PostComponent } from './components/post/post.component';
 import { VideojuegosComponent } from './components/videojuegos/videojuegos.component';
 import { TecnologiaComponent } from './components/tecnologia/tecnologia.component';
+import { Page404Component } from './components/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TecnologiaComponent } from './components/tecnologia/tecnologia.componen
     ModalPostComponent,
     PostComponent,
     VideojuegosComponent,
-    TecnologiaComponent
+    TecnologiaComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { TecnologiaComponent } from './components/tecnologia/tecnologia.componen
             [],
             {
                 // Tell the router to use the hash instead of HTML5 pushstate.
-                useHash: true,
+                //useHash: true,
  
                 // In order to get anchor / fragment scrolling to work at all, we need to
                 // enable it on the router.
