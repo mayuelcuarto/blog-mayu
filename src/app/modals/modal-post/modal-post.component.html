@@ -32,6 +32,13 @@
               <label for="fecha">Fecha</label>
               <input type="text" name="fecha" class="form-control" placeholder="Fecha" [(ngModel)]="this.dataApi.selectedPost.fecha">
             </div>
+            <div class="form-group col-md-6">
+              <label for="categoria">Categoría</label>
+              <select class="form-control" name="categoria" [(ngModel)]="this.dataApi.selectedPost.categoria">
+                <option value="videojuegos">Videojuegos</option>
+                <option value="tecnologia">Tecnologia</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
