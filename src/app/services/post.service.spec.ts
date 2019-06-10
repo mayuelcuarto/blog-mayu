@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataApiService } from './data-api.service';
+import { PostService } from './post.service';
 
-describe('DataApiService', () => {
+describe('PostService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DataApiService = TestBed.get(DataApiService);
+    const service: PostService = TestBed.get(PostService);
     expect(service).toBeTruthy();
   });
 });
