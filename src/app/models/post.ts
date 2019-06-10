@@ -5,6 +5,8 @@ export interface PostInterface{
 	autor?: string;
 	id?: string;
 	userUid ?: string;
-	fecha?: string;
+	fechaDay?: number;
+	fechaMonth?: number;
+	fechaYear?: number;
 	createdAt?: Date;
 }
