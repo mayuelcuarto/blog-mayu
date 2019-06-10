@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          {{ !this.dataApi.selectedPost.id ? 'Nuevo Post' : 'Actualizar Post' }}
+          {{ !this.postService.selectedPost.id ? 'Nuevo Post' : 'Editar Post' }}
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseModal(formPost)">
           <span aria-hidden="true">&times;</span>
@@ -11,30 +11,36 @@
       </div>
       <div class="modal-body">
         <form #formPost="ngForm" (ngSubmit)="onSavePost(formPost)">
-          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedPost.id">
+          <input type="hidden" name="id" [(ngModel)]="this.postService.selectedPost.id">
           <input type="hidden" name="userUid" [value]="userUid">
+          <input type="hidden" name="createdAt" [value]="today">
           <div class="form-group">
             <label for="titulo" class="col-form-label">Titulo:</label>
-            <input type="text" class="form-control" name="titulo" [(ngModel)]="this.dataApi.selectedPost.titulo">
+            <input type="text" class="form-control" name="titulo" [(ngModel)]="this.postService.selectedPost.titulo">
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="autor">Autor</label>
-              <input type="text" name="autor" class="form-control" placeholder="Autor" [(ngModel)]="this.dataApi.selectedPost.autor">
+              <input type="text" name="autor" class="form-control" placeholder="Autor" [(ngModel)]="this.postService.selectedPost.autor">
             </div>
             <div class="form-group col-md-6">
               <label for="portada">Portada</label>
-              <input type="text" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.dataApi.selectedPost.portada">
+              <input type="text" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.postService.selectedPost.portada">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="fecha">Fecha</label>
-              <input type="text" name="fecha" class="form-control" placeholder="Fecha" [(ngModel)]="this.dataApi.selectedPost.fecha">
+              <div class="input-group">
+                <input type="text" name="fecha" class="form-control" placeholder="Fecha" [(ngModel)]="this.postService.selectedPost.fecha" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
             </div>
             <div class="form-group col-md-6">
               <label for="categoria">Categoría</label>
-              <select class="form-control" name="categoria" [(ngModel)]="this.dataApi.selectedPost.categoria">
+              <select class="form-control" name="categoria" [(ngModel)]="this.postService.selectedPost.categoria">
                 <option value="videojuegos">Videojuegos</option>
                 <option value="tecnologia">Tecnologia</option>
               </select>
@@ -42,11 +48,11 @@
           </div>
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
-            <textarea class="form-control" rows="10" name="descripcion" [(ngModel)]="this.dataApi.selectedPost.descripcion"></textarea>
+            <textarea class="form-control" rows="4" name="descripcion" [(ngModel)]="this.postService.selectedPost.descripcion"></textarea>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose (click)="onCloseModal(formPost)">Close</button>
-            <button type="submit" class="btn btn-primary">Save Post</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose (click)="onCloseModal(formPost)">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar Post</button>
           </div>
         </form>
       </div>
