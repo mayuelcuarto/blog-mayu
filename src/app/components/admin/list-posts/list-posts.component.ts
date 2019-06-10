@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataApiService } from '../../../services/data-api.service';
+import { PostService } from '../../../services/post.service';
 import { PostInterface } from '../../../models/post';
 import { NgForm } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { UserInterface } from '../../../models/user';
 })
 export class ListPostsComponent implements OnInit {
 
-  constructor(private dataApi: DataApiService, private authService: AuthService) { }
+  constructor(private postService: PostService, private authService: AuthService) { }
   public posts = [];
   public isAdmin: any = null;
   public userUid: string = null;
@@ -37,7 +37,7 @@ export class ListPostsComponent implements OnInit {
   }
 
   getListPosts(){
-  	this.dataApi.getAllPosts().subscribe(posts => {
+  	this.postService.getAllPosts().subscribe(posts => {
   		this.posts = posts;
   	});
   }
@@ -45,11 +45,11 @@ export class ListPostsComponent implements OnInit {
   onDeletePost(idPost: string){
   	const confirmacion = confirm('Are you sure?');
   	if(confirmacion){
-  		this.dataApi.deletePost(idPost);
+  		this.postService.deletePost(idPost);
   	}
   }
 
   onPreUpdatePost(post: PostInterface){
-    this.dataApi.selectedPost = Object.assign({}, post);
+    this.postService.selectedPost = Object.assign({}, post);
   }
 }
