@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class DataApiService {
+export class PostService {
 
   constructor(private afs: AngularFirestore) {}
   private postsCollection: AngularFirestoreCollection<PostInterface>;
@@ -30,8 +30,10 @@ export class DataApiService {
   	}));
   }
 
-  getAllPostsOffers() {
-    this.postsCollection = this.afs.collection('posts', ref => ref.where('oferta', '==', '1'));
+  getPostsByYearMonth(year: number, month: number) {
+    year = +year;
+    month = +month;
+    this.postsCollection = this.afs.collection('posts', ref => ref.where('fechaYear', '==', year).where('fechaMonth', '==', month));
     return this.posts = this.postsCollection.snapshotChanges()
       .pipe(map(changes => {
         return changes.map(action => {

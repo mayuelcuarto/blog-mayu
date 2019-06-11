@@ -26,6 +26,9 @@ import { VideojuegosComponent } from './components/videojuegos/videojuegos.compo
 import { TecnologiaComponent } from './components/tecnologia/tecnologia.component';
 import { Page404Component } from './components/page404/page404.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PostsComponent } from './components/posts/posts.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,8 @@ import { Page404Component } from './components/page404/page404.component';
     PostComponent,
     VideojuegosComponent,
     TecnologiaComponent,
-    Page404Component
+    Page404Component,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,8 @@ import { Page404Component } from './components/page404/page404.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgbModule
   ],
   providers: [
     AngularFireAuth,

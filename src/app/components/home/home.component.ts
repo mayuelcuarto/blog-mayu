@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataApiService } from '../../services/data-api.service';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,12 @@ import { DataApiService } from '../../services/data-api.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private dataApi: DataApiService) { }
+  constructor(private postService: PostService) { }
   public posts = [];
   public post = '';
 
   ngOnInit() {
-  	this.dataApi.getAllPosts().subscribe(posts => {
+  	this.postService.getAllPosts().subscribe(posts => {
   		console.log('Posts', posts);
       this.posts = posts;
   	})
