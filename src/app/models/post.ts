@@ -1,12 +1,16 @@
 export interface PostInterface{
+	id?: string;
 	titulo?: string;
-	descripcion?: string;
 	portada?: string;
 	autor?: string;
-	id?: string;
-	userUid ?: string;
+	video?: string;
+	fecha?: any;
 	fechaDay?: number;
 	fechaMonth?: number;
 	fechaYear?: number;
+	categoria?: string;
+	introduccion?: string;
+	descripcion?: string;
+	userUid ?: string;
 	createdAt?: Date;
 }
