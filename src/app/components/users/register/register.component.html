@@ -6,7 +6,7 @@
           <div class="card">
             <div class="card-body text-center">
               <form #formRegister="ngForm" (ngSubmit)="onAddUser()">
-                <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Registro</h1>
                 <div class="form-group">
                   <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required
                     minlength="8">
@@ -15,7 +15,7 @@
                   <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password"
                     required minlength="5" maxlength="10">
                 </div>
-                <hr>
+                <!--<hr>
                 <div class="form-group">
                   <h5>Seleccionar imagen:</h5>
                   <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
@@ -28,13 +28,14 @@
                 <input #imageUser type="hidden" [value]="urlImage | async">
                 <button type="submit" *ngIf="urlImage | async; else btnDisabled" class="btn btn-lg btn-primary btn-block">Register</button>
                 <ng-template #btnDisabled>
-                  <button type="submit" disabled="true" class="btn btn-lg btn-secondary btn-block">Register</button>
-                </ng-template>
+                  <button type="submit" disabled="false" class="btn btn-lg btn-secondary btn-block">Register</button>
+                -->
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Registro</button>
                 <div class="form-group">
-                  <a routerLink="/user/login" class="form-control login-user">Do you have account?</a>
+                  <a routerLink="/user/login" class="form-control login-user">¿Ya tienes una cuenta?</a>
                 </div>
                 <div class="form-group">
-                  <button target="_blank" class="btn btn-block btn-social btn-facebook" (click)="onLoginFacebook()"><span class="fa fa-facebook"> Facebook</span></button>
+                  <!--<button target="_blank" class="btn btn-block btn-social btn-facebook" (click)="onLoginFacebook()"><span class="fa fa-facebook"> Facebook</span></button>-->
                   <button target="_blank" class="btn btn-block btn-social btn-google" (click)="onLoginGoogle()"><span class="fa fa-google"> Google</span></button>
                 </div>
               </form>
