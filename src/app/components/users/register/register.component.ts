@@ -41,8 +41,8 @@ export class RegisterComponent implements OnInit {
       this.authService.isAuth().subscribe(user => {
         if(user){
           user.updateProfile({
-            displayName: '',
-            photoURL: this.inputImageUser.nativeElement.value
+            displayName: ''
+            //photoURL: this.inputImageUser.nativeElement.value
           }).then((res) => {
             this.onLoginRedirect();
           }).catch(err => this.onCatchError(err));
