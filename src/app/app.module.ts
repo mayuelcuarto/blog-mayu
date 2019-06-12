@@ -28,6 +28,9 @@ import { Page404Component } from './components/page404/page404.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostsComponent } from './components/posts/posts.component';
+import { ArchivePostsComponent } from './components/archive-posts/archive-posts.component';
+
+import { SafePipe } from './pipes/safePipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { PostsComponent } from './components/posts/posts.component';
     VideojuegosComponent,
     TecnologiaComponent,
     Page404Component,
-    PostsComponent
+    PostsComponent,
+    ArchivePostsComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
