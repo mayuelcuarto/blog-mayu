@@ -11,6 +11,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { VideojuegosComponent } from './components/videojuegos/videojuegos.component';
 import { TecnologiaComponent } from './components/tecnologia/tecnologia.component';
 import { Page404Component } from './components/page404/page404.component';
+import { ArchivePostsComponent } from './components/archive-posts/archive-posts.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
 	{ path: 'posts/:year/:month', component: PostsComponent },
 	{ path: 'videojuegos', component: VideojuegosComponent },
 	{ path: 'tecnologia', component: TecnologiaComponent },
+	{ path: 'archive-posts', component: ArchivePostsComponent },
 	{ path: '**', component: Page404Component }
 ];
 
