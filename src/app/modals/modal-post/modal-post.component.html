@@ -14,9 +14,16 @@
           <input type="hidden" name="id" [(ngModel)]="this.postService.selectedPost.id">
           <input type="hidden" name="userUid" [value]="userUid">
           <input type="hidden" name="createdAt" [value]="today">
-          <div class="form-group">
-            <label for="titulo" class="col-form-label">Titulo:</label>
-            <input type="text" class="form-control" name="titulo" [(ngModel)]="this.postService.selectedPost.titulo">
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="titulo">Titulo</label>
+              <input type="text" class="form-control" name="titulo" placeholder="Título" [(ngModel)]="this.postService.selectedPost.titulo">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="portada">Portada</label>
+              <input type="text" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.postService.selectedPost.portada">
+            </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -24,8 +31,8 @@
               <input type="text" name="autor" class="form-control" placeholder="Autor" [(ngModel)]="this.postService.selectedPost.autor">
             </div>
             <div class="form-group col-md-6">
-              <label for="portada">Portada</label>
-              <input type="text" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.postService.selectedPost.portada">
+              <label for="video">Video</label>
+              <input type="text" name="video" class="form-control" placeholder="Video" [(ngModel)]="this.postService.selectedPost.video">
             </div>
           </div>
           <div class="form-row">
@@ -41,10 +48,15 @@
             <div class="form-group col-md-6">
               <label for="categoria">Categoría</label>
               <select class="form-control" name="categoria" [(ngModel)]="this.postService.selectedPost.categoria">
+                <option value="mantenimiento">Mantenimiento</option>
                 <option value="videojuegos">Videojuegos</option>
                 <option value="tecnologia">Tecnologia</option>
               </select>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="introduccion" class="col-form-label">Introducción:</label>
+            <textarea class="form-control" rows="4" name="introduccion" [(ngModel)]="this.postService.selectedPost.introduccion"></textarea>
           </div>
           <div class="form-group">
             <label for="descripcion" class="col-form-label">Descripcion:</label>
