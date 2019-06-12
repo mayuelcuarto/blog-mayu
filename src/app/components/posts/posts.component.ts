@@ -10,7 +10,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class PostsComponent implements OnInit {
 
-  constructor(private postService: PostService, private route: ActivatedRoute) { }
+  constructor(
+    private postService: PostService, 
+    private route: ActivatedRoute) { }
   public posts = [];
 
   ngOnInit() {
