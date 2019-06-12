@@ -1,0 +1,33 @@
+<section id="archive_posts" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let post of posts">
+        <div class="card_book">
+          <div class="card">
+            <div class="card-body text-center">
+              <p *ngIf="post.video=='no'">
+                <img class="img-fluid" src="{{post.portada}}" alt="{{post.titulo}}">
+              </p>
+                <div *ngIf="post.video!='no'">
+                  <iframe class="card_video" [src]="post.video | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              <h4 routerLink="/post/{{post.id}}" class="card-title">{{post.titulo}}</h4>
+              <p class="card-text" innerHtml="{{post.introduccion}}">
+              	
+              </p>
+              <div class="container-precio-idioma">
+                <p class="badge badge-info">
+                  Categoría: {{post.categoria}}
+                </p>
+                <p class="badge badge-info">
+                  Fecha: {{post.fechaDay}}-{{post.fechaMonth}}-{{post.fechaYear}}
+                </p>
+              </div>
+              <a routerLink="/post/{{post.id}}" class="btn btn-block btn-primary">Ver Post</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
