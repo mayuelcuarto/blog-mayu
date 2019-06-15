@@ -1,114 +1,93 @@
 <section id="home" class="mt-5">
   <div class="container">
-      <header class="blog-header py-3" id="top-home">
-        <div class="align-items-center">
-          <div class="text-center">
-              <span class="blog-header-logo text-dark"><a routerLink="/">El Blog del Mayu</a></span>
-          </div>
+    <header class="blog-header py-3" id="top-home">
+      <div class="align-items-center">
+        <div class="text-center">
+          <span class="blog-header-logo text-dark"><a routerLink="/">El Blog del Mayu</a></span>
         </div>
-      </header>
+      </div>
+    </header>
     
-       <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" routerLink="/tecnologia">Tecnología</a>
-          <a class="p-2 text-muted" routerLink="/videojuegos">Videojuegos</a>
-        </nav>
-      </div>
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-between">
+        <a class="p-2 text-muted" routerLink="/tecnologia">Tecnología</a>
+        <a class="p-2 text-muted" routerLink="/videojuegos">Videojuegos</a>
+      </nav>
+    </div>
 
-      <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-          <h1 class="display-4 font-italic">Battletoads 2019</h1>
-          <p class="lead my-3 text-justify">El día Domingo 9 de Junio del presente, se llevó a cabo la conferencia del E3 correspondiente a Microsoft. Para abrir la conferencia eligieron un clásico de clásicos</p>
-          <p class="lead mb-0"><a routerLink="/videojuegos" [fragment]="'battletoads2019'" class="text-white font-weight-bold">Continúa leyendo...</a></p>
-        </div>
-      </div>
-        
-      <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">Videojuegos</strong>
-              <h3 class="mb-0">
-                  <a class="text-dark" routerLink="/post/gibBq3hS981ydq5Ihk9X">Super Smash Bros. Ultimate: Reseña</a>
-              </h3>
-              <div class="mb-1 text-muted">Dic 13, 2018</div>
-              <p class="card-text mb-auto">El día Viernes 07 de Diciemrbre del presente, se liberó por fin uno de los juegos más esperados del año, 
-                  no hablo de nada más y nada menos que Super Smash Bros Ultimate para Nintendo Switch.</p>
-              <a routerLink="/post/gibBq3hS981ydq5Ihk9X">Continua leyendo...</a>
-            </div>
-            
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Tecnología</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" routerLink="/tecnologia" [fragment]="'symfony'">Configuración de Proyecto Symfony</a>
-              </h3>
-              <div class="mb-1 text-muted">Feb 13, 2018</div>
-              <p class="card-text mb-auto">Primero que nada requeriremos contar con un interprete PHP, para este fin te recomiendo instalar <a target="_blank" href="http://www.wampserver.com/en/">wamp</a>
-                    (este es un software que nos configurará Apache, PHP y MySql de una sola vez).</p>
-              <a routerLink="/tecnologia" [fragment]="'symfony'">Continua leyendo...</a>
-            </div>
-            
-          </div>
-        </div>
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Battletoads 2019</h1>
+        <p class="lead my-3 text-justify">El día Domingo 9 de Junio del presente, se llevó a cabo la conferencia del E3 correspondiente a Microsoft. Para abrir la conferencia eligieron un clásico de clásicos</p>
+        <p class="lead mb-0"><a routerLink="/post/R3eGlAUTOfySch60cjK7" class="text-white font-weight-bold">Continúa leyendo...</a></p>
       </div>
     </div>
 
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8 blog-main">
-          <h3 class="pb-3 mb-4 font-italic border-bottom">
-            Primero imagínalo, luego prográmalo
-          </h3>
-
-          <div class="blog-post"><a name=”ina” id="ina">
-              <h2 class="blog-post-title">Inauguración del Blog del Mayu</h2></a>
-            <p class="blog-post-meta">Febrero 08, 2018 por <a href="https://www.linkedin.com/in/cristhian-mayuri-quiroz/">Cristhian Mayuri</a></p>
-            <p class="text-justify">Bienvenido(a) a mi Blog, mi nombre es Cristhian Mayuri, desarrollador de software de nacionalidad peruana, 
-                mi experiencia en el mundo de la programación es de casi 10 años (la mayoría de ellos en una Institución del Estado en Perú).</p>
-            <p class="text-justify">Mi grado de instrucción es de Técnico en Computación e Informática.</p>
-            <p class="text-justify">Mi experiencia es amplia en PHP y mediana en Java, llegando a realizar sistemas administrativos de gran envergadura en el primero.</p>
-            <p class="text-justify">Actualmente estoy incursionando en el desarrollo para android, por lo que es bastante probable que dentro del blog publique algunas
-               entradas interesantes acerca del tema.</p>
-            <p class="text-justify">Poco más queda por decir, salvo el hecho de que esta es mi primera experiencia publicando contenido para la comunidad de internet y espero estar a la altura de las expectativas.</p>
-          </div> 
-            
-          <div class="blog-post"><a name=”videojuegos” id="videojuegos">
-              <h2 class="blog-post-title">Inauguración de la Sección de Videojuegos</h2></a>
-            <p class="blog-post-meta">July 18, 2018 por <a href="https://www.linkedin.com/in/cristhian-mayuri-quiroz/">Cristhian Mayuri</a></p>
-            <p class="text-justify">Uno de mis pasatiempos favoritos es el de jugar videojuegos, dada esta situación he visto por conveniente crear una nueva sección en mi blog.</p>
-            <p class="text-justify">En esta sección compartiré algunos gameplays y algunas reseñas desde mi humilde opinión. 
-                Para empezar subiré algunos gameplays de uno de mis juegos favoritos, ni más ni menos que Darkest Dungeon, los videos los podrás ver desde este <a routerLink="/videojuegos">link</a></p>
-          </div> 
-
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-          <div class="p-3 mb-3 bg-light rounded">
-            <h4 class="font-italic">Acerca del sitio web</h4>
-            <p class="mb-0 text-justify">El blog del Mayu ha sido desarrollado con la finalidad de compartir mis experiencias en diversos campos durante mi día a día cotidiano.</p>
+    <div class="row mb-2">
+      <div class="col-md-6" *ngFor="let postCard1 of postsVCard">
+        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+          <div class="card-body d-flex flex-column align-items-start" >
+            <strong class="d-inline-block mb-2 text-primary">Videojuegos</strong>
+            <h3 class="mb-0">
+              <a class="text-dark" routerLink="/post/{{postCard1.id}}">{{postCard1.titulo}}</a>
+            </h3>
+            <div class="mb-1 text-muted">{{postCard1.fechaMonth | mesAcro}} {{postCard1.fechaDay}}, {{postCard1.fechaYear}}</div>
+            <p class="card-text mb-auto">{{postCard1.introduccion}}</p>
+            <a routerLink="/post/{{postCard1.id}}">Continua leyendo...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" *ngFor="let postCard2 of postsTCard">
+        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+          <div class="card-body d-flex flex-column align-items-start">
+            <strong class="d-inline-block mb-2 text-success">Tecnología</strong>
+            <h3 class="mb-0">
+              <a class="text-dark" routerLink="/post/{{postCard2.id}}">{{postCard2.titulo}}</a>
+            </h3>
+            <div class="mb-1 text-muted">{{postCard2.fechaMonth | mesAcro}} {{postCard2.fechaDay}}, {{postCard2.fechaYear}}</div>
+            <p class="card-text mb-auto">{{postCard2.introduccion}}</p>
+            <a routerLink="/post/{{postCard2.id}}">Continua leyendo...</a>
           </div>
 
-          <div class="p-3">
-            <h4 class="font-italic">Sígueme también en:</h4>
-            <ol class="list-unstyled">
-              <li><a href="https://github.com/mayuelcuarto">GitHub</a></li>
-              <li><a href="https://www.youtube.com/channel/UCPN6mJNFnR_e6an6ToTX4pg?view_as=subscriber">Youtube</a></li>
-            </ol>
-          </div>
-        </aside><!-- /.blog-sidebar -->
+        </div>
+      </div>
+    </div>
+  </div>
 
-      </div><!-- /.row -->
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+          Primero imagínalo, luego prográmalo
+        </h3>
+        <div class="blog-post" *ngFor="let post of posts">
+          <h2 class="blog-post-title">{{post.titulo}}</h2>
+          <p class="blog-post-meta">{{post.fechaMonth | mesName}} {{post.fechaDay}}, {{post.fechaYear}} por <a href="{{post.temp}}">{{post.autor}}</a></p>
+          <div innerHtml="{{post.descripcion}}"></div>
+        </div>
 
-    </main><!-- /.container -->
+      </div><!-- /.blog-main -->
 
-    <footer class="blog-footer">
-      <p>Este sitio web fue desarrollado con <a href="https://getbootstrap.com/">Bootstrap</a></p>
-      <p>
-        <a routerLink="." fragment="top-home">Subir</a>
-      </p>
-    </footer>
+      <aside class="col-md-4 blog-sidebar">
+        <div class="p-3 mb-3 bg-light rounded">
+          <h4 class="font-italic">Acerca del sitio web</h4>
+          <p class="mb-0 text-justify">El blog del Mayu ha sido desarrollado con la finalidad de compartir mis experiencias en diversos campos durante mi día a día cotidiano.</p>
+        </div>
+
+        <div class="p-3">
+          <h4 class="font-italic">Sígueme también en:</h4>
+          <ol class="list-unstyled">
+            <li><a href="https://github.com/mayuelcuarto" target="_blank">GitHub</a></li>
+            <li><a href="https://www.youtube.com/channel/UCPN6mJNFnR_e6an6ToTX4pg?view_as=subscriber" target="_blank">Youtube</a></li>
+          </ol>
+        </div>
+      </aside><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+  </main><!-- /.container -->
+
+  <footer class="blog-footer">
+    <p>Este sitio web fue desarrollado con <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+  </footer>
 </section>
