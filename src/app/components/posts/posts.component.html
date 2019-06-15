@@ -24,7 +24,7 @@
       <div class="col-md-8 blog-main" >
         <div class="blog-post" *ngFor="let post of posts">
           <h2 class="blog-post-title">{{post.titulo}}</h2>
-          <p class="blog-post-meta">{{post.fechaMonth | mesName}} {{post.fechaDay}}, {{post.fechaYear}} por <a href="{{post.temp}}">{{post.autor}}</a></p>
+          <p class="blog-post-meta">{{post.fechaMonth | mesName}} {{post.fechaDay}}, {{post.fechaYear}} por <a href="{{post.temp}}" target="_blank">{{post.autor}}</a></p>
           <div innerHtml="{{post.descripcion}}"></div>
         </div>
       </div><!-- /.blog-main -->
