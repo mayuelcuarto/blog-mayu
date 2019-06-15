@@ -6,12 +6,16 @@ import { auth } from 'firebase/app';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserInterface } from '../models/user';
 
+import { Observable } from 'rxjs/internal/Observable';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) {}
+  private userDoc: AngularFirestoreDocument<UserInterface>;
+  private user: Observable<UserInterface>;
 
   registerUser(email: string, pass: string){
     return new Promise((resolve, reject) => {
@@ -63,6 +67,20 @@ export class AuthService {
 
   isUserAdmin(userUid){
     return this.afs.doc<UserInterface>(`users/${userUid}`).valueChanges();
+  }
+
+  getUserByUserUid(userUid: string){
+    this.userDoc = this.afs.doc<UserInterface>(`users/${userUid}`);
+    return this.user = this.userDoc.snapshotChanges()
+    .pipe(map(action => {
+      if(action.payload.exists == false){
+        return null;
+      }else{
+        const data = action.payload.data() as UserInterface;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
   }
 
 }
