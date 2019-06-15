@@ -24,7 +24,7 @@
       <div class="col-md-8 blog-main" >
         <div class="blog-post" *ngFor="let post of posts">
           <h2 class="blog-post-title">{{post.titulo}}</h2>
-          <p class="blog-post-meta">{{this.mesString(post.fechaMonth)}} {{post.fechaDay}}, {{post.fechaYear}} por <a href="https://www.linkedin.com/in/cristhian-mayuri-quiroz/">{{post.autor}}</a></p>
+          <p class="blog-post-meta">{{post.fechaMonth | mesName}} {{post.fechaDay}}, {{post.fechaYear}} por <a href="{{post.temp}}">{{post.autor}}</a></p>
           <div innerHtml="{{post.descripcion}}"></div>
         </div>
       </div><!-- /.blog-main -->
@@ -37,7 +37,7 @@
         <div class="p-3">
           <h4 class="font-italic">Archivos</h4>
           <ol class="list-unstyled mb-0">
-            <li><a href="/posts/2019/03">Marzo 2019</a></li>
+            <li><a href="/posts/2019/3">Marzo 2019</a></li>
             <li><a href="/posts/2018/12">Diciembre 2018</a></li>
             <li><a href="/posts/2018/8">Agosto 2018</a></li>
             <li><a href="/posts/2018/7">Julio 2018</a></li>
@@ -46,17 +46,14 @@
         <div class="p-3">
           <h4 class="font-italic">Sígueme también en:</h4>
           <ol class="list-unstyled">
-            <li><a href="https://github.com/mayuelcuarto">GitHub</a></li>
-            <li><a href="https://www.youtube.com/channel/UCPN6mJNFnR_e6an6ToTX4pg?view_as=subscriber">Youtube</a></li>
+            <li><a href="https://github.com/mayuelcuarto" target="_blank">GitHub</a></li>
+            <li><a href="https://www.youtube.com/channel/UCPN6mJNFnR_e6an6ToTX4pg?view_as=subscriber" target="_blank">Youtube</a></li>
           </ol>
         </div>
       </aside><!-- /.blog-sidebar -->
     </div><!-- /.row -->
   </main><!-- /.container -->
   <footer class="blog-footer">
-    <p>Este sitio web fue desarrollado con <a href="https://getbootstrap.com/">Bootstrap</a></p>
-    <p>
-      <a routerLink="." fragment="top-post">Subir</a>
-    </p>
+    <p>Este sitio web fue desarrollado con <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
   </footer>
 </section>
