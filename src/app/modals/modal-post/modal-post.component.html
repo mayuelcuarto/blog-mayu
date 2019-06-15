@@ -54,6 +54,17 @@
               </select>
             </div>
           </div>
+          <div class="form-row">
+            
+            <div class="form-group col-md-2" >
+              <label for="destacado" class="col-form-label">Destacado:</label>
+              <input type="checkbox" name="destacado" class="form-control" [(ngModel)]="this.postService.selectedPost.destacado" ng-true-value="+" ng-false-value="-">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="card" class="col-form-label">Card:</label>
+              <input type="checkbox" name="card" class="form-control" [(ngModel)]="this.postService.selectedPost.card" ng-true-value="+" ng-false-value="-">
+            </div>
+          </div>
           <div class="form-group">
             <label for="introduccion" class="col-form-label">Introducción:</label>
             <textarea class="form-control" rows="4" name="introduccion" [(ngModel)]="this.postService.selectedPost.introduccion"></textarea>
