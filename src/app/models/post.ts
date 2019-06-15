@@ -9,6 +9,7 @@ export interface PostInterface{
 	fechaMonth?: number;
 	fechaYear?: number;
 	categoria?: string;
+	resaltado?: boolean;
 	introduccion?: string;
 	descripcion?: string;
 	userUid ?: string;
