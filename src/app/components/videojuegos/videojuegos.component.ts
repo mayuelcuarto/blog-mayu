@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../services/post.service';
+import { PostInterface } from '../../models/post';
 
 @Component({
   selector: 'app-videojuegos',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideojuegosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService: PostService) { }
+  public posts = [];
 
   ngOnInit() {
+    this.getPostsByCategoriaDestacado('videojuegos');
+  }
+
+  getPostsByCategoriaDestacado(categoria: string): void{
+  	this.postService.getPostsByCategoriaDestacado(categoria).subscribe(posts => {
+  		this.posts = posts;
+  	});
   }
 
 }
