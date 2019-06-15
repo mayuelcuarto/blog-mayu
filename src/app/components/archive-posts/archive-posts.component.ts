@@ -14,7 +14,6 @@ export class ArchivePostsComponent implements OnInit {
 
   ngOnInit() {
   	this.postService.getAllPosts().subscribe(posts => {
-  		console.log('Posts', posts);
       this.posts = posts;
   	})
   }
