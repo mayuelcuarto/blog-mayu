@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { PostInterface } from '../../models/post';
+import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -12,14 +13,10 @@ export class PostComponent implements OnInit {
 
   constructor(
     private postService: PostService, 
+    private authService: AuthService,
     private route: ActivatedRoute
     ) { }
   public post: PostInterface = {};
-
-  ruta = null;
-  dia = null;
-  mes = null;
-  anio = null;
 
   ngOnInit() {
     const idPost = this.route.snapshot.params['id'];
@@ -29,67 +26,10 @@ export class PostComponent implements OnInit {
   getDetails(idPost: string): void{
     this.postService.getOnePost(idPost).subscribe(post => {
       this.post = post;
-      this.dia = this.post.fechaDay;
-      this.mesString(this.post.fechaMonth);
-      this.anio = this.post.fechaYear;
+        this.authService.getUserByUserUid(post.userUid).subscribe(user => {
+          post.temp = user.linkedin;
+        })
     });
-    
-  }
-
-  mesString(month: number): void{
-    switch (month) {
-      case 1:
-        this.mes = "Enero";
-        break;
-
-      case 2:
-        this.mes = "Febrero";
-        break;
-
-      case 3:
-        this.mes = "Marzo";
-        break;
-
-      case 4:
-        this.mes = "Abril";
-        break;
-
-      case 5:
-        this.mes = "Mayo";
-        break;
-
-      case 6:
-        this.mes = "Junio";
-        break;
-
-      case 7:
-        this.mes = "Julio";
-        break;
-
-      case 8:
-        this.mes = "Agosto";
-        break;
-
-      case 9:
-        this.mes = "Setiembre";
-        break;
-
-      case 10:
-        this.mes = "Octubre";
-        break;
-
-      case 11:
-        this.mes = "Noviembre";
-        break;
-
-      case 12:
-        this.mes = "Diciembre";
-        break;
-      
-      default:
-        // code...
-        break;
-    }
   }
 
 }
