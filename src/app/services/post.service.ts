@@ -4,12 +4,14 @@ import { PostInterface } from '../models/post';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
+import { AuthService } from '../services/auth.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore, private authService: AuthService) {}
   private postsCollection: AngularFirestoreCollection<PostInterface>;
   private posts: Observable<PostInterface[]>;
   private postDoc: AngularFirestoreDocument<PostInterface>;
@@ -20,14 +22,14 @@ export class PostService {
 
   getAllPosts(){
     this.postsCollection = this.afs.collection<PostInterface>('posts');
-  	return this.posts = this.postsCollection.snapshotChanges()
-  	.pipe(map(changes => {
-  		return changes.map(action => {
-  			const data = action.payload.doc.data() as PostInterface;
-  			data.id = action.payload.doc.id;
-  			return data;
-  		});
-  	}));
+    return this.posts = this.postsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as PostInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getPostsByYearMonth(year: number, month: number) {
@@ -35,25 +37,43 @@ export class PostService {
     month = +month;
     this.postsCollection = this.afs.collection('posts', ref => ref.where('fechaYear', '==', year).where('fechaMonth', '==', month));
     return this.posts = this.postsCollection.snapshotChanges()
-      .pipe(map(changes => {
-        return changes.map(action => {
-          const data = action.payload.doc.data() as PostInterface;
-          data.id = action.payload.doc.id;
-          return data;
-        });
-      }));
+    .pipe(map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as PostInterface;
+        data.id = action.payload.doc.id;
+        this.authService.getUserByUserUid(data.userUid).subscribe(user => {
+          data.temp = user.linkedin;
+        })
+        return data;
+      });
+    }));
   }
 
-  getPostsByCategoriaResaltado(categoria: string, resaltado: boolean) {
-    this.postsCollection = this.afs.collection('posts', ref => ref.where('categoria', '==', categoria).where('resaltado', '==', true));
+  getPostsByCategoriaDestacado(categoria: string) {
+    this.postsCollection = this.afs.collection('posts', ref => ref.where('categoria', '==', categoria).where('destacado', '==', true));
     return this.posts = this.postsCollection.snapshotChanges()
-      .pipe(map(changes => {
-        return changes.map(action => {
-          const data = action.payload.doc.data() as PostInterface;
-          data.id = action.payload.doc.id;
-          return data;
-        });
-      }));
+    .pipe(map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as PostInterface;
+        data.id = action.payload.doc.id;
+        this.authService.getUserByUserUid(data.userUid).subscribe(user => {
+          data.temp = user.linkedin;
+        })
+        return data;
+      });
+    }));
+  }
+
+  getPostsByCategoriaCard(categoria: string) {
+    this.postsCollection = this.afs.collection('posts', ref => ref.where('categoria', '==', categoria).where('card', '==', true));
+    return this.posts = this.postsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as PostInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
   }
 
   getOnePost(idPost: string){
