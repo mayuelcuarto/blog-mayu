@@ -13,8 +13,14 @@ import { UserInterface } from '../../../models/user';
   styleUrls: ['./list-posts.component.css']
 })
 export class ListPostsComponent implements OnInit {
+  config: any;
 
-  constructor(private postService: PostService, private authService: AuthService) { }
+  constructor(private postService: PostService, private authService: AuthService) {
+    this.config = {
+      itemsPerPage: 5,
+      currentPage: 1
+    }
+  }
   public posts = [];
   public isAdmin: any = null;
   public userUid: string = null;
@@ -30,7 +36,6 @@ export class ListPostsComponent implements OnInit {
   			this.userUid = auth.uid;
   			this.authService.isUserAdmin(this.userUid).subscribe(userRole => {
   				this.isAdmin = Object.assign({}, userRole.roles).hasOwnProperty('admin');
-  				//this.isAdmin = true;
   			})
   		}
   	})
@@ -39,7 +44,13 @@ export class ListPostsComponent implements OnInit {
   getListPosts(){
   	this.postService.getAllPosts().subscribe(posts => {
   		this.posts = posts;
-  	});
+
+      this.config = {
+        itemsPerPage: 5,
+        currentPage: 1,
+        totalItems: posts.length
+      };
+    });
   }
 
   onDeletePost(idPost: string){
@@ -51,5 +62,13 @@ export class ListPostsComponent implements OnInit {
 
   onPreUpdatePost(post: PostInterface){
     this.postService.selectedPost = Object.assign({}, post);
+  }
+
+  pageChanged(event){
+    this.config.currentPage = event;
+  }
+
+  showId(id: string){
+    alert(id);
   }
 }
