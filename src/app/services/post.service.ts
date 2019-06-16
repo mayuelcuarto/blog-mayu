@@ -76,6 +76,18 @@ export class PostService {
     }));
   }
 
+  getPostsByRefTitulo(titulo: string){
+    this.postsCollection = this.afs.collection('posts', ref => ref.orderBy('titulo').startAt(titulo).endAt(titulo+'\uf8ff'));
+    return this.posts = this.postsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map(action => {
+        const data = action.payload.doc.data() as PostInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
+  }
+
   getOnePost(idPost: string){
     this.postDoc = this.afs.doc<PostInterface>(`posts/${idPost}`);
     return this.post = this.postDoc.snapshotChanges()

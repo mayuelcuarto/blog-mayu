@@ -12,6 +12,7 @@ import { VideojuegosComponent } from './components/videojuegos/videojuegos.compo
 import { TecnologiaComponent } from './components/tecnologia/tecnologia.component';
 import { Page404Component } from './components/page404/page404.component';
 import { ArchivePostsComponent } from './components/archive-posts/archive-posts.component';
+import { SearchTituloComponent } from './components/search-titulo/search-titulo.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
 	{ path: 'videojuegos', component: VideojuegosComponent },
 	{ path: 'tecnologia', component: TecnologiaComponent },
 	{ path: 'archive-posts', component: ArchivePostsComponent },
+	{ path: 'search/:titulo', component: SearchTituloComponent },
 	{ path: '**', component: Page404Component }
 ];
 
