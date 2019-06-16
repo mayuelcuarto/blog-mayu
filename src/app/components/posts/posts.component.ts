@@ -18,11 +18,11 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
   	const year = this.route.snapshot.params['year'];
   	const month = this.route.snapshot.params['month'];
-  	this.getPostsByYearMonth(year, month);
+  	this.getPostsByCategoriaYearMonth('videojuegos', year, month);
   }
 
-  getPostsByYearMonth(year: number, month: number): void{
-  	this.postService.getPostsByYearMonth(year, month).subscribe(posts => {
+  getPostsByCategoriaYearMonth(categoria: string, year: number, month: number): void{
+  	this.postService.getPostsByCategoriaYearMonth(categoria, year, month).subscribe(posts => {
   		this.posts = posts;
   	});
   }
