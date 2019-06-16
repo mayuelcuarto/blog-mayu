@@ -33,6 +33,7 @@ import { ArchivePostsComponent } from './components/archive-posts/archive-posts.
 import { SafePipe } from './pipes/safePipe';
 import { MesNamePipe } from './pipes/mesNamePipe';
 import { MesAcroPipe } from './pipes/mesAcroPipe';
+import { SearchTituloComponent } from './components/search-titulo/search-titulo.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MesAcroPipe } from './pipes/mesAcroPipe';
     ArchivePostsComponent,
     SafePipe,
     MesNamePipe,
-    MesAcroPipe
+    MesAcroPipe,
+    SearchTituloComponent
   ],
   imports: [
     BrowserModule,

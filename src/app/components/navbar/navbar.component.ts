@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,13 +12,16 @@ export class NavbarComponent implements OnInit {
 
   constructor(
   	private authService: AuthService,
-  	private afsAuth: AngularFireAuth
+  	private afsAuth: AngularFireAuth,
+    private router: Router
   	) { }
   public app_name: string = 'El Blog del Mayu';
   public isLogged: boolean = false;
   public isAdmin: any = null;
   public userUid: string = null;
   public email: string = null;
+
+  public titulo: string = null;
 
   ngOnInit() {
   	this.getCurrentUser();
@@ -38,6 +42,10 @@ export class NavbarComponent implements OnInit {
   			this.isLogged = false;
   		}
   	})
+  }
+
+  onSearch(): void{
+      window.location.href = '/search/' + this.titulo;
   }
 
   onLogout(){
