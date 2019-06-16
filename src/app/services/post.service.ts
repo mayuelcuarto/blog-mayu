@@ -21,7 +21,7 @@ export class PostService {
   };
 
   getAllPosts(){
-    this.postsCollection = this.afs.collection<PostInterface>('posts');
+    this.postsCollection = this.afs.collection('posts', ref => ref.orderBy('fechaYear', 'desc').orderBy('fechaMonth', 'desc').orderBy('fechaDay', 'desc'));
     return this.posts = this.postsCollection.snapshotChanges()
     .pipe(map(changes => {
       return changes.map(action => {
@@ -32,10 +32,10 @@ export class PostService {
     }));
   }
 
-  getPostsByYearMonth(year: number, month: number) {
+  getPostsByCategoriaYearMonth(categoria: string, year: number, month: number) {
     year = +year;
     month = +month;
-    this.postsCollection = this.afs.collection('posts', ref => ref.where('fechaYear', '==', year).where('fechaMonth', '==', month));
+    this.postsCollection = this.afs.collection('posts', ref => ref.where('categoria', '==', categoria).where('fechaYear', '==', year).where('fechaMonth', '==', month).orderBy('fechaDay', 'desc'));
     return this.posts = this.postsCollection.snapshotChanges()
     .pipe(map(changes => {
       return changes.map(action => {
@@ -50,7 +50,7 @@ export class PostService {
   }
 
   getPostsByCategoriaDestacado(categoria: string) {
-    this.postsCollection = this.afs.collection('posts', ref => ref.where('categoria', '==', categoria).where('destacado', '==', true));
+    this.postsCollection = this.afs.collection('posts', ref => ref.where('categoria', '==', categoria).where('destacado', '==', true).orderBy('fechaYear', 'desc').orderBy('fechaMonth', 'desc').orderBy('fechaDay', 'desc'));
     return this.posts = this.postsCollection.snapshotChanges()
     .pipe(map(changes => {
       return changes.map(action => {
