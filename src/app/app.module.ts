@@ -30,6 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostsComponent } from './components/posts/posts.component';
 import { ArchivePostsComponent } from './components/archive-posts/archive-posts.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import { SafePipe } from './pipes/safePipe';
 import { MesNamePipe } from './pipes/mesNamePipe';
 import { MesAcroPipe } from './pipes/mesAcroPipe';
@@ -61,7 +63,8 @@ import { MesAcroPipe } from './pipes/mesAcroPipe';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [
     AngularFireAuth,

@@ -1,10 +1,11 @@
 <section class="row mt-5">
-	<div class="col">
+	<div class="col text-center">
 		<button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalPost">Nuevo Post</button>
 		<table class="table table-hover table-responsive">
 			<thead>
 				<tr>
 					<th scope="col">#</th>
+					<th scope="col">Id</th>
 					<th scope="col">Título</th>
 					<th scope="col">Autor</th>
 					<th scope="col">Categoría</th>
@@ -14,9 +15,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let post of posts; index as i">
+				<tr *ngFor="let post of posts | paginate: config; index as i">
 					<th scope="row">{{i + 1}}</th>
-					<td>{{post.titulo}}</td>
+					<td *ngIf="post.userUid == userUid || isAdmin == true; else noOwnerId">
+						<button class="btn btn-warning" (click)="showId(post.id)"><span class="fa fa-exclamation-circle"></span></button>
+					</td>
+					<ng-template #noOwnerId>
+						<td>
+							<button class="btn btn-secondary" disabled="true"><span class="fa fa-exclamation-circle"></span></button>
+						</td>
+					</ng-template>
+					<td class="text-left">{{post.titulo}}</td>
 					<td>{{post.autor}}</td>
 					<td>{{post.categoria}}</td>
 					<td>{{post.fecha.day}}/{{post.fecha.month}}/{{post.fecha.year}}</td>
@@ -39,6 +48,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 	</div>
 </section>
 <app-modal-post [userUid]="userUid"></app-modal-post>
