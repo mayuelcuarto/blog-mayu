@@ -15,9 +15,10 @@ export class SearchTituloComponent implements OnInit {
   public posts = [];
 
   ngOnInit() {
-  	const titulo = this.route.snapshot.params['titulo'];
-  	this.postService.getPostsByRefTitulo(titulo).subscribe(posts => {
-      this.posts = posts;
+  	const titulo: string = this.route.snapshot.params['titulo'];
+  	this.postService.getAllPosts().subscribe(posts => {
+      let postsFilter = posts.filter(item => item.titulo.toLowerCase().indexOf(titulo.toLowerCase()) > -1);
+      this.posts = postsFilter;
   	})
   }
 
