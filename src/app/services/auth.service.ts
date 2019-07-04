@@ -22,7 +22,7 @@ export class AuthService {
       this.afsAuth.auth.createUserWithEmailAndPassword(email, pass)
       .then(userData => {
         resolve(userData),
-          this.updateUserData(userData.user)
+          this.updateUserData(userData.user);
       }).catch(err => console.log(reject(err)))
     });
   }
