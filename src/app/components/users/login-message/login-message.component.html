@@ -1,0 +1,30 @@
+<section id="login-message" class="mb-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+      	<div class="alert alert-warning text-justify" role="alert">
+    		Se ha enviado un correo de confirmación a tu email, una vez verificado podrás logearte con tus credenciales mediante este formulario.
+    	</div>
+        <div class="card_login">
+          <div class="card">
+            <div class="card-body text-center">
+              <form #formLogin="ngForm" (ngSubmit)="onLogin()">
+                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                <div class="form-group">
+                  <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control" placeholder="Email"  required>
+                </div>
+                <div class="form-group">
+                  <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" 
+                    required>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="onLogin()">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
