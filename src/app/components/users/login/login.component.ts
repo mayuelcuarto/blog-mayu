@@ -25,7 +25,13 @@ export class LoginComponent implements OnInit {
   onLogin(): void{
     this.authService.loginEmailUser(this.email, this.password)
     .then((res) => {
-      this.onLoginRedirect();
+      this.authService.isAuth().subscribe(user => {
+        if(user.emailVerified){
+          this.onLoginRedirect();
+        }else{
+          alert("El email aún no se ha validado");
+        }
+      })
     }).catch(err => this.onCatchError(err));    
   }
 
