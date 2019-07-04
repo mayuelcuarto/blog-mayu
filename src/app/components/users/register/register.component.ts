@@ -39,17 +39,13 @@ export class RegisterComponent implements OnInit {
   	this.authService.registerUser(this.email, this.password)
   	.then((res) => {
       this.authService.isAuth().subscribe(user => {
-        if(user){
-          user.updateProfile({
-            displayName: ''
-            //photoURL: this.inputImageUser.nativeElement.value
-          }).then((res) => {
-            this.onLoginRedirect();
-          }).catch(err => this.onCatchError(err));
-        }
+        user.sendEmailVerification();
       })
-  		//this.router.navigate(['/admin/list-books']);
-  	}).catch(err => this.onCatchError(err));
+  	}).catch(err => this.onCatchError(err))
+    .finally(() => {
+      this.authService.logoutUser();
+      this.onRegisterRedirect();
+    });
   }
 
   onLoginGoogle(): void{
@@ -68,6 +64,10 @@ export class RegisterComponent implements OnInit {
 
   onLoginRedirect(): void{
     this.router.navigate(['/']);
+  }
+
+  onRegisterRedirect(): void{
+    this.router.navigate(['/user/login-message']);
   }
 
   onCatchError(err): void{
