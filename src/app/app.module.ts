@@ -36,6 +36,7 @@ import { SafePipe } from './pipes/safePipe';
 import { MesNamePipe } from './pipes/mesNamePipe';
 import { MesAcroPipe } from './pipes/mesAcroPipe';
 import { SearchTituloComponent } from './components/search-titulo/search-titulo.component';
+import { LoginMessageComponent } from './components/users/login-message/login-message.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SearchTituloComponent } from './components/search-titulo/search-titulo.
     SafePipe,
     MesNamePipe,
     MesAcroPipe,
-    SearchTituloComponent
+    SearchTituloComponent,
+    LoginMessageComponent
   ],
   imports: [
     BrowserModule,
