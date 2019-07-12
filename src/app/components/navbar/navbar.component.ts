@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(
+  constructor(@Inject(WINDOW) private window: Window, 
   	private authService: AuthService,
   	private afsAuth: AngularFireAuth,
     private router: Router
@@ -45,7 +46,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onSearch(): void{
-      window.location.href = '/search/' + this.titulo;
+      this.window.location.href = '/search/' + this.titulo;
   }
 
   onLogout(){

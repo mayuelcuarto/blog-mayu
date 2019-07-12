@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //import { RouterModule } from "@angular/router";
 
@@ -37,35 +37,11 @@ import { MesNamePipe } from './pipes/mesNamePipe';
 import { MesAcroPipe } from './pipes/mesAcroPipe';
 import { SearchTituloComponent } from './components/search-titulo/search-titulo.component';
 import { LoginMessageComponent } from './components/users/login-message/login-message.component';
-import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { AppModule } from './app.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    HomeComponent,
-    ListPostsComponent,
-    ModalPostComponent,
-    PostComponent,
-    VideojuegosComponent,
-    TecnologiaComponent,
-    Page404Component,
-    PostsComponent,
-    ArchivePostsComponent,
-    SafePipe,
-    MesNamePipe,
-    MesAcroPipe,
-    SearchTituloComponent,
-    LoginMessageComponent
-  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -73,10 +49,8 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     AngularFireStorageModule,
     NgbModule,
     NgxPaginationModule,
-    CommonModule,
-    TransferHttpCacheModule,
-    HttpClientModule,
-    NgtUniversalModule
+    AppModule,
+    BrowserTransferStateModule
   ],
   providers: [
     AngularFireAuth,
@@ -84,4 +58,4 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppBrowserModule { }
