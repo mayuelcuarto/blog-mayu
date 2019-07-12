@@ -25,10 +25,6 @@ export class PostsComponent implements OnInit {
 
       this.getPostsByCategoriaYearMonth('videojuegos', year, month);
     });
-    /*
-  	let year = this.route.snapshot.params['year'];
-  	let month = this.route.snapshot.params['month'];
-  	this.getPostsByCategoriaYearMonth('videojuegos', year, month);*/
   }
 
   getPostsByCategoriaYearMonth(categoria: string, year: number, month: number): void{
