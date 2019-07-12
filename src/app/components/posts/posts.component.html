@@ -26,6 +26,9 @@
           <h2 class="blog-post-title">{{post.titulo}}</h2>
           <p class="blog-post-meta">{{post.fechaMonth | mesName}} {{post.fechaDay}}, {{post.fechaYear}} por <a href="{{post.temp}}" target="_blank">{{post.autor}}</a></p>
           <div innerHtml="{{post.descripcion}}"></div>
+          <object *ngIf="post.videoCierre!='no'" class="videoCierre" [data]="post.videoCierre | safe">
+          </object>
+          <div *ngIf="post.msgVideoCierre!='no'" class="text-justify" innerHtml="{{post.msgVideoCierre}}"></div>
         </div>
       </div><!-- /.blog-main -->
 

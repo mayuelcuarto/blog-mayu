@@ -16,4 +16,6 @@ export interface PostInterface{
 	userUid ?: string;
 	createdAt?: Date;
 	temp?: string;
+	videoCierre?: string;
+	msgVideoCierre?: string;
 }
