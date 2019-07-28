@@ -26,8 +26,8 @@ const routes: Routes = [
 	{ path: 'admin/list-posts', component: ListPostsComponent, canActivate: [AuthGuard] },
 	{ path: 'post/:id', component: PostComponent},
 	{ path: 'posts/:year/:month', component: PostsComponent },
-	{ path: 'videojuegos.html', component: VideojuegosComponent },
-	{ path: 'tecnologia.html', component: TecnologiaComponent},
+	{ path: 'videojuegos', component: VideojuegosComponent },
+	{ path: 'tecnologia', component: TecnologiaComponent },
 	{ path: 'archive-posts', component: ArchivePostsComponent },
 	{ path: 'search/:titulo', component: SearchTituloComponent },
 	{ path: '**', component: Page404Component }
@@ -35,7 +35,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,
-  	{ useHash: false })],
+  	{ useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
