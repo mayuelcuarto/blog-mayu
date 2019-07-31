@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public afAuth: AngularFireAuth, 
     private router: Router,
-    private authService: AuthService,
+    private authService: AuthService
     ) {}
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogleUser()
     .then((res) => {
       this.onLoginRedirect();
-    }).catch(err => this.onCatchError(err));  	
+    }).catch(err => this.onCatchError(err));
   }
 
   onLoginFacebook(): void{

@@ -40,8 +40,8 @@ export class AuthService {
     .then(credential => {this.updateUserData(credential.user)});
   }
 
-  loginGoogleUser(){
-    return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+  async loginGoogleUser(){
+    return await this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
     .then(credential => {this.updateUserData(credential.user)});
   }
 

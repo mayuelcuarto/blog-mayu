@@ -30,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostsComponent } from './components/posts/posts.component';
 import { ArchivePostsComponent } from './components/archive-posts/archive-posts.component';
 
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SafePipe } from './pipes/safePipe';
 import { MesNamePipe } from './pipes/mesNamePipe';

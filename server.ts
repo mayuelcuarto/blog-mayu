@@ -43,3 +43,13 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
+global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
+
+const domino = require('domino');
+const fs = require('fs');
+//const path = require('path');
+//const template = fs.readFileSync(path.join(__dirname, '.', 'dist/browser', 'index.html')).toString();
+const win = domino.createWindow(join(DIST_FOLDER, 'index.html'));
+global['window'] = win;
+global['document'] = win.document;
+
